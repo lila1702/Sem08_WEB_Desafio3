@@ -1,4 +1,5 @@
 # Desafio 3 - Desenvolvimento WEB
-Universidade Federal do Ceará
+Disciplina da Universidade Federal do Ceará
+Aluna: Lila Maria
 
 ## O Jogo
