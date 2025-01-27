@@ -1,0 +1,210 @@
+:root {
+    /* Cores */
+    --blue-piece: #6197DD;
+    --yellow-piece: #EACA73;
+    --red-piece: #C44C4C;
+    --pink-piece: #ED8BF2;
+    --green-piece: #568C52;
+    --white: #DDCCFF;
+    --external-link-color: #E85EFF;
+
+    --piece-border: #A167FE;
+    --piece-border-middle: #FFFFFF;
+    
+    --hover-piece: #FF0066;
+    
+    --gamemode-selected: #4C3177;
+    --gamemode-bg-hover: #2C1D44;
+    --gamemode-bg-color: #150E21;
+
+    /* Tamanhos: */
+    --box-size: 64px;
+
+    /* Configurações: */
+    font-family: "Grenze", Impact, Arial;
+    color: var(--white);
+
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    background: linear-gradient(to bottom, #150E21, #382459);
+    min-height: 100vh;
+    background-attachment: fixed;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#header {
+    text-align: center;
+    line-height: 1;
+    margin-top: 15px;
+}
+
+/* Objetivo */
+
+#jogo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+#objetivo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Versão tela do pc (Fica lado a lado) */
+@media screen and (min-width: 800px) {
+    #jogo {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    #container-goal {
+        display: grid;
+        grid-template-columns: repeat(3, 30px);
+        grid-template-rows: repeat(3, 30px);
+        gap: 3px;
+    }
+
+    .piece-goal {
+        border: 2px solid var(--piece-border);
+        border-radius: 7px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 799px) {
+    #container-goal {
+        display: grid;
+        grid-template-columns: repeat(3, 15px);
+        grid-template-rows: repeat(3, 15px);
+        gap: 3px;
+    }
+    
+    .piece-goal {
+        border: 2px solid var(--piece-border);
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Jogador */
+#container-puzzle {
+    text-align: center;
+
+    display: grid;
+    grid-template-columns: repeat(5, var(--box-size));
+    grid-template-rows: repeat(5, var(--box-size));
+    
+    gap: 8px;
+}
+
+.piece-puzzle {
+    border: 2.5px solid var(--piece-border);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.piece-puzzle:hover {
+    border-color: var(--hover-piece);
+    cursor: pointer;
+}
+
+.blue {
+    background-color: var(--blue-piece);
+}
+
+.yellow {
+    background-color: var(--yellow-piece);
+}
+
+.red {
+    background-color: var(--red-piece);
+}
+
+.pink {
+    background-color: var(--pink-piece);
+}
+
+.green {
+    background-color: var(--green-piece);
+}
+
+.blank {
+    border-color: transparent;
+    background-color: rgba(0, 0, 0, 0%);
+}
+
+.blank:hover {
+    border-color: transparent;
+    cursor: default;
+}
+
+/* Informações */
+#informações {
+    margin-top: 15px;
+    text-align: center;
+    line-height: 5px;
+    font-size: 18px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#modos-de-jogo button {
+    color: var(--white);
+    background-color: var(--gamemode-bg-color);
+    border-color: var(--piece-border);
+    
+    display: block;
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+#modos-de-jogo button:hover {
+    background-color: var(--gamemode-bg-hover);
+    border-color: var(--white);
+}
+
+#modos-de-jogo .selected-mode {
+    background-color: var(--gamemode-selected);
+}
+
+#modo-limite {
+    margin-top: 5px;
+}
+
+#tempo {
+    font-size: 22px;
+}
+
+/* Extras */
+footer {
+    text-align: center;
+    font-size: 18px;
+}
+
+footer a {
+    color: var(--external-link-color);
+}
