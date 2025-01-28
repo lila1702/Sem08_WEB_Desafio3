@@ -64,8 +64,21 @@ main {
     justify-content: center;
 }
 
-/* Versão tela do pc (Fica lado a lado) */
+#container-goal {
+    gap: 3px;
+}
+
+.piece-goal {
+    border: 2px solid var(--piece-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white);
+}
+
+/* Versão tela do pc (e tablet) */
 @media screen and (min-width: 800px) {
+    /* Fica tudo lado a lado */
     #jogo {
         flex-direction: row;
         align-items: flex-start;
@@ -75,32 +88,23 @@ main {
         display: grid;
         grid-template-columns: repeat(3, 30px);
         grid-template-rows: repeat(3, 30px);
-        gap: 3px;
     }
 
     .piece-goal {
-        border: 2px solid var(--piece-border);
         border-radius: 7px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
     }
 }
 
+/* Em telas menores, as peças do objetivo também são menores */
 @media screen and (max-width: 799px) {
     #container-goal {
         display: grid;
         grid-template-columns: repeat(3, 15px);
         grid-template-rows: repeat(3, 15px);
-        gap: 3px;
     }
     
     .piece-goal {
-        border: 2px solid var(--piece-border);
         border-radius: 3px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
     }
 }
 
@@ -111,8 +115,12 @@ main {
     display: grid;
     grid-template-columns: repeat(5, var(--box-size));
     grid-template-rows: repeat(5, var(--box-size));
+
+    background-color: #150E21;
+    border-radius: 15px;
+    border: 2px solid var(--piece-border);
     
-    gap: 8px;
+    gap: 5px;
 }
 
 .piece-puzzle {
@@ -185,14 +193,26 @@ main {
 #modos-de-jogo button:hover {
     background-color: var(--gamemode-bg-hover);
     border-color: var(--white);
+    cursor: pointer;
 }
 
 #modos-de-jogo .selected-mode {
     background-color: var(--gamemode-selected);
+    border-color: var(--white);
 }
 
-#modo-limite {
+#modos-de-jogo button {
     margin-top: 5px;
+}
+
+#modos-de-jogo button:active {
+    background-color: var(--gamemode-selected);
+}
+
+#modos-de-jogo #iniciar-jogo {
+    border-color: var(--piece-border-middle);
+    border-width: 3.5px;
+    font-weight: bold;
 }
 
 #tempo {
