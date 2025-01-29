@@ -8,6 +8,8 @@ let gameEnded = false
 let currentGameMode = ""
 let timer = 0
 let timeRemaining = 0
+let intervalTimed = null
+let intervalTimeLimit = null
 
 // Gerar Objetivo
 function generateGoal() {
@@ -77,11 +79,14 @@ function shuffleBoard() {
 // Resetar Tabuleiro
 function resetBoard() {
     let goalPieces = document.querySelectorAll(".piece-goal")
+    let tempo = document.querySelector("#tempo")
     const colors = ["blue", "yellow", "red", "pink", "green"]
 
     goalPieces.forEach(piece => {
         colors.forEach(color => piece.classList.remove(color));
     })
+
+    tempo.innerHTML = "00:00"
 }
 
 // Mover Peças
@@ -103,12 +108,52 @@ function selectMode(gamemode) {
     }
 }
 
+function runTime() {
+    let tempo = document.querySelector("#tempo")
+    let segundos = 0
+
+    if (currentGameMode == "Cronometrado") {
+        clearInterval(intervalTimed)
+        clearInterval(intervalTimeLimit)
+        intervalTimed = setInterval(() => {
+            segundos = segundos + 1
+            let min = Math.floor(segundos / 60)
+            let seg = segundos % 60
+            tempo.innerHTML = String(min).padStart(2, "0") + ":" + String(seg).padStart(2, "0");
+        }, 1000)
+    }
+    else if (currentGameMode == "Tempo Limite") {
+        clearInterval(intervalTimed)
+        clearInterval(intervalTimeLimit)
+        tempo.innerHTML = "00:20"
+        segundos = 20 % 60
+        intervalTimeLimit = setInterval(() => {
+            segundos = segundos - 1
+            let min = Math.floor(segundos / 60)
+            let seg = segundos % 60
+            tempo.innerHTML = String(min).padStart(2, "0") + ":" + String(seg).padStart(2, "0");
+
+            if (segundos < 0) {
+                clearInterval(intervalTimeLimit)
+                alert("Tempo Esgotado! Você perdeu no modo de jogo Tempo Limite.")
+                tempo.innerHTML = "00:00"
+            }
+        }, 1000)
+    }
+}
+
 // Iniciar Jogo
 startGameBtn.addEventListener("click", () => iniciarJogo())
 
 function iniciarJogo() {
-    resetBoard()
-    generateGoal()
-    shuffleBoard()
-    gameStarted = true
+    if (currentGameMode == "") {
+        alert("Você precisa selecionar um Modo de Jogo primeiro!")
+    }
+    else {
+        resetBoard()
+        generateGoal()
+        shuffleBoard()
+        gameStarted = true
+        runTime()
+    }
 }
