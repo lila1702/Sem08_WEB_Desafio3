@@ -1,0 +1,94 @@
+<!--
+Aluna: Lila Maria Salvador Frazão
+Matrícula: 510809
+-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Coded</title>
+    <link rel="stylesheet" href="src/style.css">
+    <link rel="icon" type="image/x-icon" href="src/img/icon.png">
+    <!-- Font-Family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Grenze:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <section id="header">
+            <h1>Color Coded</h1>
+            <p><strong>Regras:</strong> Mova as peças para fazer com que as 9 peças centrais estejam iguais a do objetivo à esquerda</p>
+        </section>
+
+        <section id="jogo">
+
+            <section id="objetivo">
+                <div id="container-goal">
+                    <div class="piece-goal"></div>
+                    <div class="piece-goal"></div>
+                    <div class="piece-goal"></div>
+                    <div class="piece-goal"></div>
+                    <div class="piece-goal"></div>
+                    <div class="piece-goal"></div>
+                    <div class="piece-goal"></div>
+                    <div class="piece-goal"></div>
+                    <div class="piece-goal"></div>
+                </div>
+            </section>
+            <br>
+            <section id="grid-jogo">
+                <div id="container-puzzle">
+                    <div class="piece-puzzle blue"></div>
+                    <div class="piece-puzzle blue"></div>
+                    <div class="piece-puzzle blue"></div>
+                    <div class="piece-puzzle blue"></div>
+                    <div class="piece-puzzle blue"></div>
+                    <div class="piece-puzzle yellow"></div>
+                    <div class="piece-puzzle yellow"></div>
+                    <div class="piece-puzzle yellow"></div>
+                    <div class="piece-puzzle yellow"></div>
+                    <div class="piece-puzzle yellow"></div>
+                    <div class="piece-puzzle red"></div>
+                    <div class="piece-puzzle red"></div>
+                    <div class="piece-puzzle red"></div>
+                    <div class="piece-puzzle red"></div>
+                    <div class="piece-puzzle red"></div>
+                    <div class="piece-puzzle pink"></div>
+                    <div class="piece-puzzle pink"></div>
+                    <div class="piece-puzzle pink"></div>
+                    <div class="piece-puzzle pink"></div>
+                    <div class="piece-puzzle pink"></div>
+                    <div class="piece-puzzle green"></div>
+                    <div class="piece-puzzle green"></div>
+                    <div class="piece-puzzle green"></div>
+                    <div class="piece-puzzle green"></div>
+                    <div class="piece-puzzle blank"></div>
+                </div>
+            </section>
+
+            <section id="informações">
+                <div class="timer">
+                    <p>Tempo</p>
+                    <p id="tempo">00:00</p>
+                </div>
+
+                <div id="modos-de-jogo">
+                    <p>Modos de jogo</p>
+                    <button class="modo-jogo" id="modo-cronometrado">Cronometrado</button>
+                    <button class="modo-jogo" id="modo-limite">Tempo Limite</button>
+                    <button id="iniciar-jogo">Começar</button>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>Feito por <a href="https://github.com/lila1702" target="_blank">Lila Maria</a></p>
+    </footer>
+
+    <script src="src/script.js"></script>
+</body>
+</html>
